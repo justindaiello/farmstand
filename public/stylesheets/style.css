@@ -1,5 +1,5 @@
 :root {
-  --green: rgb(11, 102, 35);
+  --green: linear-gradient(rgba(11,102,35,1), rgba(11,102,35,.4));
   --white: rgb(255,255,255);
 }
 
@@ -20,11 +20,23 @@ body {
 }
 
 .buyer-info {
+  /* visual */
+  background-image: url("https://i.imgur.com/0goMThl.jpg");
+}
+
+.farmer-info {
+  /* visual */
+  background-image: url("https://i.imgur.com/pXmQYGH.jpg");
+  background-position: center;
+}
+
+.buyer-info,
+.farmer-info {
   /* box-model */
   width: 80%;
   height: 15em;
   margin: 0 auto;
-  margin-top: 5em;
+  margin-top: 2em;
   display: flex;
 
   /* positioning */
@@ -33,12 +45,12 @@ body {
   justify-content: flex-end;
 
   /* visual */
-  background-image: url("https://i.imgur.com/0goMThl.jpg");
   background-size: cover;
   border-radius: 12px;
 }
 
-.eater-header {
+.eater-header,
+.farmer-header {
   /* box-model */
   width: 100%;
   height: 3em;
@@ -53,21 +65,24 @@ body {
 
   /* visual */
   color: var(--white);
-  background: linear-gradient(rgba(11,102,35,1), rgba(11,102,35,.4));
+  background: var(--green);
   transition: height .5s;
 }
 
-.eater-desc {
+.eater-desc,
+.farmer-desc {
   /* visual (hidden) */
   opacity: 0;
 }
 
-.show-desc .eater-header {
+.show-desc .eater-header,
+.show-desc .farmer-header {
   /* box-model */
   height: 12em;
 }
 
-.show-desc .eater-desc {
+.show-desc .eater-desc,
+.show-desc .farmer-desc {
   /* visual (unhide) */
   opacity: 1;
 }
