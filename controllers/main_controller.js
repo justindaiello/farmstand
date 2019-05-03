@@ -9,7 +9,7 @@ const router = express.Router();
 //==========
 //localhost:3000
 router.get('/' , (req, res) => {
-  res.send('Hello World!');
+  res.render('index.ejs');
 });
 
 
