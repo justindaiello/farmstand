@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <% include ../partials/head.ejs %>
     <title>FarmStand</title>
   </head>
   <body>
-    <h1>EJS is connected</h1>
+    <!-- navbar -->
+  <% include ../partials/nav.ejs %>
+  <div class='container-fluid'>
+    <!-- information for buyers -->
+    <div class='buyer-info'>
+      <p class='eater-header'>For Eaters<br/><small class='eater-desc'>This is some test text to make sure that this works</small></p>
+    </div>
+    <!-- information for farmers -->
+    <div class='farmer-info'>
+      <p class='farmer-header'>For Farmers<br/><small class='farmer-desc'>This is some test text to make sure that this works</small></p>
+    </div>
+  </div>
+
+
   </body>
 </html>
