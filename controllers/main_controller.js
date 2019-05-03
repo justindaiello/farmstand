@@ -19,4 +19,11 @@ router.get('/login', (req, res) => {
   res.render('login.ejs')
 })
 
+//=================
+// SHOP / SHOW PAGE
+//=================
+router.get('/shop', (req, res) => {
+  res.render('shop.ejs')
+})
+
 module.exports = router;
