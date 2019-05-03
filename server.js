@@ -7,6 +7,12 @@ const mongoose = require('mongoose');
 const app = express();
 const db = mongoose.connection;
 
+//=============
+// CONTROLLER
+//=============
+const controller = require('./controllers/main_controller.js');
+app.use('/', controller)
+
 //=======
 // PORT
 //=======
@@ -50,13 +56,6 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 // db.on('open' , ()=>{});
 
 
-//==========
-// INDEX
-//==========
-//localhost:3000
-app.get('/' , (req, res) => {
-  res.send('Hello World!');
-});
 
 //==========
 // LISTENER
