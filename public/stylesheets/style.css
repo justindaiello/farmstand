@@ -1,5 +1,10 @@
 :root {
-  --green: rgba(13, 147, 71, 0.75);
+  --green: rgb(11, 102, 35);
+  --white: rgb(255,255,255);
+}
+
+body {
+  /* background: var(--lightGreen); */
 }
 
 .navbar {
@@ -12,4 +17,57 @@
   padding-right: 1em;
   /* positioning */
   justify-content: flex-end;
+}
+
+.buyer-info {
+  /* box-model */
+  width: 80%;
+  height: 15em;
+  margin: 0 auto;
+  margin-top: 5em;
+  display: flex;
+
+  /* positioning */
+  position: relative;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  /* visual */
+  background-image: url("https://i.imgur.com/0goMThl.jpg");
+  background-size: cover;
+  border-radius: 12px;
+}
+
+.eater-header {
+  /* box-model */
+  width: 100%;
+  height: 3em;
+  margin-bottom: 0;
+  padding-top: .75em;
+
+  /* positioning */
+  position: absolute;
+
+  /* typography */
+  text-align: center;
+
+  /* visual */
+  color: var(--white);
+  background: linear-gradient(rgba(11,102,35,1), rgba(11,102,35,.4));
+  transition: height .5s;
+}
+
+.eater-desc {
+  /* visual (hidden) */
+  opacity: 0;
+}
+
+.show-desc .eater-header {
+  /* box-model */
+  height: 12em;
+}
+
+.show-desc .eater-desc {
+  /* visual (unhide) */
+  opacity: 1;
 }
