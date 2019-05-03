@@ -4,6 +4,7 @@
 const express = require('express');
 const methodOverride  = require('method-override');
 const mongoose = require('mongoose');
+const Product = require('./models/products.js')
 const app = express();
 const db = mongoose.connection;
 

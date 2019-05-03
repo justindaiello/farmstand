@@ -4,6 +4,14 @@
 const express = require('express');
 const router = express.Router();
 
+
+//=========================
+// FARMERS PAGE / NEW ROUTE
+//=========================
+router.get('/farmers', (req, res) => {
+  res.send('this is a farmers page')
+})
+
 //==========
 // INDEX
 //==========
