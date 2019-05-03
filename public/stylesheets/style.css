@@ -1,15 +1,15 @@
 :root {
-  --green: linear-gradient(rgba(11,102,35,1), rgba(11,102,35,.4));
+
   --white: rgb(255,255,255);
+ rgba(245,197,54,.4));
+  --blue: linear-gradient(rgba(153,207,229,1), rgba(153,207,229,.4));
+  --black: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,.4));
 }
 
-body {
-  /* background: var(--lightGreen); */
-}
 
 .navbar {
   /* visual */
-  background: var(--green);
+  background: var(--blue);
 }
 
 .collapse {
@@ -65,7 +65,7 @@ body {
 
   /* visual */
   color: var(--white);
-  background: var(--green);
+  background: var(--blue);
   transition: height .5s;
 }
 
