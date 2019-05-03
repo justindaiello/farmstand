@@ -1,0 +1,15 @@
+:root {
+  --green: rgba(13, 147, 71, 0.75);
+}
+
+.navbar {
+  /* visual */
+  background: var(--green);
+}
+
+.collapse {
+  /* box-model */
+  padding-right: 1em;
+  /* positioning */
+  justify-content: flex-end;
+}
