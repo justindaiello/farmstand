@@ -108,17 +108,22 @@ body {
   /* box-model */
   display: flex;
   padding-top: 3em;
+  width: 100%;
 
   /* positioning */
   flex-wrap: wrap;
   justify-content: center;
   text-align: center;
+
+  /* visual */
+  background: var(--green)
 }
 
 .photos {
   /* box-model */
   display: flex;
   width: 33%;
+  overflow: hidden;
 
   /* positoining */
   flex-direction: column;
@@ -129,5 +134,28 @@ body {
   /* box-model */
   width: 50%;
   height: auto;
+
+  /* visual */
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  transition: 0.5s;
+
+}
+
+.photos img:hover {
+  /* visual */
+  border: 3px solid rgba(255, 255, 255, 1)
+}
+
+.photos:hover .pop-container {
+  /* visual */
+  /* opacity: 1; */
+}
+
+.product-desc {
+  /* typography */
+  font-size: 1.5em;
+
+  /* visual */
+  color: var(--white);
 
 }
