@@ -168,7 +168,27 @@ body {
 /* show page */
 /* ========== */
 
-.show-box {
+.table {
+  /* box-model */
+  margin-top: 2em;
+
+  /* positioning */
+  text-align: center;
+
+  /* visual */
   background: var(--green);
-  min-height: 100vh;
+}
+
+.header-text {
+  /* typography */
+  color: var(--white);
+  font-size: 1.65em;
+  font-weight: 400;
+}
+
+.info-table {
+
+  /* typography */
+  color: var(--white);
+  font-size: 1.2em;
 }

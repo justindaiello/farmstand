@@ -7,8 +7,37 @@
   </head>
   <body>
   <% include ../partials/nav.ejs %>
-  <div class="show-box">
+  <!-- <div class="show-box"> -->
+    <div class="container showbox">
+      <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <th class="header-text" scope="col">Name</th>
+          <th class="header-text" scope="col">Price</th>
+          <th class="header-text" scope="col">Farm</th>
+          <th class="header-text" scope="col">Quantity Available</th>
+          <th class="header-text" scope="col"></th>
+        </thead>
+        <tr>
+          <th class="info-table" scope="col"><%=product.name%></th>
+          <th class="info-table" scope="col"><%=product.price%></th>
+          <th class="info-table" scope="col"><%=product.name%></th>
+          <th class="info-table" scope="col"><%=product.qty%></th>
 
-  </div>
+          <% if (product.qty <= 0) { %>
+            <th class="info-table">OUT OF STOCK</th>
+            <%  } else {%>
+
+            <th scope="col">
+              <form action="/shop/<%=product.id%>?_method=PUT" method="POST">
+                <input type="hidden" name="qty" value="<%=product.qty - 1%>"/>
+                <input type="submit" value="RESERVE" class="btn btn-success"/>
+              </form>
+            </th> <% } %>
+        </tr>
+      </table>
+      </div>
+    </div>
+  <!-- </div> -->
   </body>
 </html>
