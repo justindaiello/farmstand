@@ -102,3 +102,32 @@ body {
   /* visual */
   background: white;
 }
+
+/* shop page */
+.photo-box {
+  /* box-model */
+  display: flex;
+  padding-top: 3em;
+
+  /* positioning */
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.photos {
+  /* box-model */
+  display: flex;
+  width: 33%;
+
+  /* positoining */
+  flex-direction: column;
+  align-items: center;
+}
+
+.photos img {
+  /* box-model */
+  width: 50%;
+  height: auto;
+
+}

@@ -48,4 +48,33 @@ router.get('/shop', (req, res) => {
   })
 })
 
+//============
+// SEED DATA
+//============
+router.get('/shop/seed', (req, res) => {
+  Product.create([
+    {
+      name: 'Carrots',
+      description: 'Freshly picked carrots with greens.',
+      img: 'https://i.imgur.com/wQCvaQ0.jpg',
+      price: 4,
+      qty: 10
+    },
+    {
+      name: 'Lettuce',
+      description: 'Fresh heads of red and green butter lettuce.',
+      img: 'https://i.imgur.com/c4hAQqW.jpg',
+      price: 4,
+      qty: 10
+    },
+    {
+      name: 'Beans',
+      description: 'Freshly picked green and purple beans',
+      img: 'https://i.imgur.com/0goMThl.jpg',
+      price: 4,
+      qty: 10
+    },
+  ])
+})
+
 module.exports = router;

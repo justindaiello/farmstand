@@ -7,8 +7,15 @@
   </head>
   <body>
     <% include ../partials/nav.ejs %>
+    <div class='container'>
+    <div class='photo-box'>
     <% for (let i = 0; i < product.length; i ++) { %>
-    <h1><%=product[i].name%></h1>
+    <div class='photos'>
+      <img src="<%=product[i].img%>" alt="">
+      <p><%=product[i].name%></p>
+    </div>
     <% } %>
+  </div>
+    </div>
   </body>
 </html>
