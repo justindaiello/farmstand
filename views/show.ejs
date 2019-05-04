@@ -7,7 +7,6 @@
   </head>
   <body>
   <% include ../partials/nav.ejs %>
-  <!-- <div class="show-box"> -->
     <div class="container showbox">
       <div class="table-responsive">
       <table class="table">
@@ -31,13 +30,17 @@
             <th scope="col">
               <form action="/shop/<%=product.id%>?_method=PUT" method="POST">
                 <input type="hidden" name="qty" value="<%=product.qty - 1%>"/>
-                <input type="submit" value="RESERVE" class="btn btn-success"/>
+                <input type="submit" value="RESERVE" class="btn btn-primary"/>
               </form>
             </th> <% } %>
         </tr>
       </table>
       </div>
+        <div class="div-button">
+          <form method='GET' action='/shop'>
+            <button class="btn btn-success" type='submit'>BACK</button>
+          </form>
+        </div>
     </div>
-  <!-- </div> -->
   </body>
 </html>

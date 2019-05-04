@@ -165,7 +165,7 @@ body {
 }
 
 /* ========== */
-/* show page */
+/* show pages */
 /* ========== */
 
 .table {
@@ -191,4 +191,21 @@ body {
   /* typography */
   color: var(--white);
   font-size: 1.2em;
+}
+
+.div-button {
+  /* box-model */
+  display: flex;
+
+  /* positioning */
+  justify-content: center;
+}
+
+.farmer-header {
+  /* box-model */
+  padding-top: 1em;
+
+  /* typography */
+  text-align: center;
+  color: var(--white);
 }
