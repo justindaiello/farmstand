@@ -10,7 +10,9 @@ const Product = require('../models/products.js')
 // FARMERS PAGE / NEW ROUTE
 //=========================
 router.get('/shop/new', (req, res) => {
-  res.render('new.ejs')
+  Product.find({}, (err, allProducts) => {
+    res.render('new.ejs', { product: allProducts } )
+  })
 })
 
 //==============
@@ -41,7 +43,9 @@ router.get('/login', (req, res) => {
 // SHOP / SHOW PAGE
 //=================
 router.get('/shop', (req, res) => {
-  res.render('shop.ejs')
+  Product.find({}, (err, allProducts) => {
+    res.render('shop.ejs', { product: allProducts } )
+  })
 })
 
 module.exports = router;

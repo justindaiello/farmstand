@@ -17,6 +17,9 @@
                 <input type="text" name="price" placeholder="Price"/><br/>
                 <input type="text" name="qty" placeholder="Quantity"/><br/>
                 <input type="submit" name="" value="Create Product"/>
+                <% for (let i = 0; i < product.length; i ++) { %>
+                <h1><%=product[i].name%></h1>
+                <% } %>
             </form>
         </div>
   </body>

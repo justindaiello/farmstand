@@ -7,5 +7,8 @@
   </head>
   <body>
     <% include ../partials/nav.ejs %>
+    <% for (let i = 0; i < product.length; i ++) { %>
+    <h1><%=product[i].name%></h1>
+    <% } %>
   </body>
 </html>
