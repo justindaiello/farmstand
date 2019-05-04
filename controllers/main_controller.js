@@ -32,6 +32,15 @@ router.get('/' , (req, res) => {
   res.render('index.ejs');
 });
 
+//==============
+// SHOW PAGE
+//==============
+router.get('/shop/:id', (req, res)=>{
+  Product.findById(req.params.id, (err, foundProduct) => {
+  res.render('show.ejs', { product: foundProduct })
+  })
+});
+
 //===========
 // LOGIN
 //===========
@@ -39,9 +48,9 @@ router.get('/login', (req, res) => {
   res.render('login.ejs')
 })
 
-//=================
-// SHOP / SHOW PAGE
-//=================
+//======================
+// SHOP / PRODUCT INDEX
+//======================
 router.get('/shop', (req, res) => {
   Product.find({}, (err, allProducts) => {
     res.render('shop.ejs', { product: allProducts } )

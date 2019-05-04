@@ -103,12 +103,16 @@ body {
   background: white;
 }
 
-/* shop page */
+/* =============== */
+/*    shop page */
+/* =============== */
+
 .photo-box {
   /* box-model */
   display: flex;
   padding-top: 3em;
   width: 100%;
+  min-height: 100vh;
 
   /* positioning */
   flex-wrap: wrap;
@@ -158,4 +162,13 @@ body {
   /* visual */
   color: var(--white);
 
+}
+
+/* ========== */
+/* show page */
+/* ========== */
+
+.show-box {
+  background: var(--green);
+  min-height: 100vh;
 }
