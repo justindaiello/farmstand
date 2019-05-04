@@ -1,15 +1,28 @@
 :root {
 
   --white: rgb(255,255,255);
- rgba(245,197,54,.4));
-  --blue: linear-gradient(rgba(153,207,229,1), rgba(153,207,229,.4));
-  --black: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,.4));
+  --blue: radial-gradient(rgba(153,207,229,1), rgba(153,207,229,.4));
+  --green: linear-gradient(rgba(45,71,35,.5), rgba(45,71,35,.4));
 }
 
+body {
+  /* visual */
+  background: url('https://i.imgur.com/pXmQYGH.jpg');
+  background-size: cover;
+  background-position: center;
+
+  /* typography */
+  font-family: 'Work Sans', sans-serif;
+}
 
 .navbar {
   /* visual */
-  background: var(--blue);
+  background: var(--green);
+}
+
+.navbar-brand {
+  /* typography */
+  font-size: 40px;
 }
 
 .collapse {
@@ -21,22 +34,15 @@
 
 .buyer-info {
   /* visual */
-  background-image: url("https://i.imgur.com/0goMThl.jpg");
+  /* background-image: url("https://i.imgur.com/c4hAQqW.jpg"); */
 }
 
-.farmer-info {
-  /* visual */
-  background-image: url("https://i.imgur.com/pXmQYGH.jpg");
-  background-position: center;
-}
-
-.buyer-info,
-.farmer-info {
+.buyer-info {
   /* box-model */
   width: 80%;
   height: 15em;
   margin: 0 auto;
-  margin-top: 2em;
+  margin-top: -2em;
   display: flex;
 
   /* positioning */
@@ -49,11 +55,11 @@
   border-radius: 12px;
 }
 
-.eater-header,
-.farmer-header {
+.eater-header {
   /* box-model */
   width: 100%;
   height: 3em;
+  margin-top: 2em;
   margin-bottom: 0;
   padding-top: .75em;
 
@@ -62,27 +68,37 @@
 
   /* typography */
   text-align: center;
+  font-size: 4em;
 
   /* visual */
   color: var(--white);
-  background: var(--blue);
+  background: var(--green);
+  border-radius: 1em;
   transition: height .5s;
 }
 
-.eater-desc,
-.farmer-desc {
+.eater-desc {
   /* visual (hidden) */
   opacity: 0;
 }
 
-.show-desc .eater-header,
-.show-desc .farmer-header {
+.show-desc .eater-header {
   /* box-model */
-  height: 12em;
+  height: 5em;
 }
 
-.show-desc .eater-desc,
-.show-desc .farmer-desc {
+.show-desc .eater-desc {
   /* visual (unhide) */
   opacity: 1;
+}
+
+.line {
+  /* box-model */
+  margin-top: 14em;
+
+  /* positioning */
+  align-self: flex-end;
+
+  /* visual */
+  background: white;
 }
