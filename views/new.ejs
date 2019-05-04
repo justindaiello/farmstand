@@ -31,18 +31,18 @@
               </thead>
               <% for (let i = 0; i < product.length; i ++) { %>
                 <!-- Modal -->
-                <div id="myModal<%=i%>" class="modal fade" role="dialog">
-                  <div class="modal-dialog">
+                <!-- <div id="myModal<%=i%>" class="modal fade" role="dialog"> -->
+                  <!-- <div class="modal-dialog"> -->
 
                     <!-- Modal content-->
-                    <div class="modal-content">
+                    <!-- <div class="modal-content">
                       <div class="modal-header">
                         <h4 class="modal-title">Modal Header</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                       </div>
                       <div class="modal-body">
                           <form action="/shop/new?_method=PUT" method="POST">
-                            <input type="text" name="id" value="<%=product[i].id%>"/>
+                            <input type="hidden" name="_id" value="<%=product[i].id%>"/>
                             <input type="text" name="name" value="<%=product[i].name%>"/>
                             <input type="submit" name="" value="Submit Changes"/>
                           </form>
@@ -51,7 +51,7 @@
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
 
               <tr>
                 <th class="info-table" scope="col"><%=product[i].name%></th>
@@ -63,18 +63,17 @@
                   <%  } else {%>
 
                   <th scope="col">
-                    <!-- <form action="/shop/<%=product.id%>/edit" method="GET">
+                    <form action="/shop/<%=product[i].id%>/edit" method="GET">
                       <input type="submit" value="UPDATE" class="btn btn-primary"/>
-                    </form> -->
-                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal<%=i%>">UPDATE</button>
+                    </form>
+                    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal<%=i%>">UPDATE</button> -->
                   </th> <% } %>
                   </div>
-                  <th scope="col">
-                    <form action="/shop/<%=product.id%>?_method=PUT" method="POST">
-                      <input type="hidden" name="qty" value="<%=product.qty - 1%>"/>
+                  <!-- <th scope="col">
+                    <form action="/shop/new?_method=PUT" method="POST">
                       <input type="submit" value="DELETE" class="btn btn-danger"/>
                     </form>
-                  </th>
+                  </th> -->
               </tr>
                 <% } %>
             </table>

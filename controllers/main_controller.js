@@ -20,7 +20,7 @@ router.get('/shop/new', (req, res) => {
 //==============
 router.post('/shop/', (req, res) => {
   Product.create(req.body, (err, createdProduct) => {
-    res.redirect('/')
+    res.redirect('/shop/new')
   })
 })
 
@@ -35,16 +35,14 @@ router.get('/' , (req, res) => {
 //===============
 // EDIT PRODUCTS
 //===============
-router.get('/shop/edit', (req, res) => {
-  res.render('edit.ejs')
-})
-
-//===========
-// PUT
-//===========
-router.put('/shop/new', (req, res)=>{
-    Product.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
-        res.redirect('/shop/new');
+router.get('/shop/:id/edit', (req, res)=>{
+    Product.findById(req.params.id, (err, foundProducts)=>{
+        res.render(
+    		'edit.ejs',
+    		{
+    			product: foundProducts
+    		}
+    	);
     });
 });
 
@@ -70,6 +68,24 @@ router.get('/login', (req, res) => {
 router.get('/shop', (req, res) => {
   Product.find({}, (err, allProducts) => {
     res.render('shop.ejs', { product: allProducts } )
+  })
+})
+
+//===========
+// PUT
+//===========
+router.put('/shop/:id', (req, res)=>{
+    Product.findByIdAndUpdate(req.params._id, req.body, {new:true}, (err, updatedModel)=>{
+        res.redirect('/shop/new');
+    });
+});
+
+//========
+// DELETE
+//========
+router.delete('/shop/new', (req, res) => {
+  Product.findByIdAndRemove(req.params.id, (err, data) => {
+    res.redirect('/shop/new')
   })
 })
 
