@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <% include ../partials/head.ejs %>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <!-- navbar -->
+    <% include ../partials/nav.ejs %>
+    <div class='container'>
+          <h1>Add a Vegetable</h1>
+            <form action="/shop" method="POST">
+                <input type="text" name="name" placeholder="Name"/><br/>
+                <input type="text" name="description" placeholder="Description"/><br/>
+                <input type="text" name="img" placeholder="Image URL"/><br/>
+                <input type="text" name="price" placeholder="Price"/><br/>
+                <input type="text" name="qty" placeholder="Quantity"/><br/>
+                <input type="submit" name="" value="Create Product"/>
+            </form>
+        </div>
+  </body>
+</html>

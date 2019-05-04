@@ -3,13 +3,23 @@
 //=============
 const express = require('express');
 const router = express.Router();
+const Product = require('../models/products.js')
 
 
 //=========================
 // FARMERS PAGE / NEW ROUTE
 //=========================
-router.get('/farmers', (req, res) => {
-  res.send('this is a farmers page')
+router.get('/shop/new', (req, res) => {
+  res.render('new.ejs')
+})
+
+//==============
+// POST
+//==============
+router.post('/shop/', (req, res) => {
+  Product.create(req.body, (err, createdProduct) => {
+    res.redirect('/')
+  })
 })
 
 //==========
