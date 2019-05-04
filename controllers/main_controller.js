@@ -32,6 +32,22 @@ router.get('/' , (req, res) => {
   res.render('index.ejs');
 });
 
+//===============
+// EDIT PRODUCTS
+//===============
+router.get('/shop/edit', (req, res) => {
+  res.render('edit.ejs')
+})
+
+//===========
+// PUT
+//===========
+router.put('/shop/new', (req, res)=>{
+    Product.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
+        res.redirect('/shop/new');
+    });
+});
+
 //==============
 // SHOW PAGE
 //==============

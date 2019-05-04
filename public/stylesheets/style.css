@@ -11,6 +11,7 @@ body {
   background-size: cover;
   background-position: center;
 
+
   /* typography */
   font-family: 'Work Sans', sans-serif;
 }
@@ -209,3 +210,24 @@ body {
   text-align: center;
   color: var(--white);
 }
+
+/* ******workaround for bootstrap modal bug**** */
+.fade.in {
+  opacity: 1;
+}
+.modal.in .modal-dialog {
+  -webkit-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+.modal-backdrop .fade .in {
+  opacity: 0.5 !important;
+}
+
+
+.modal-backdrop.fade {
+    opacity: 0.5 !important;
+}
+
+/* END WORKAROUND */

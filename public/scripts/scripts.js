@@ -6,9 +6,10 @@ $(() => {
 $('.buyer-info').on('click', () => {
   $('.buyer-info').toggleClass('show-desc')
 })
-//Same as above except for the farmer information div
-$('.farmer-info').on('click', () => {
-  $('.farmer-info').toggleClass('show-desc')
+
+
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
 })
 
 });
