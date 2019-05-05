@@ -74,9 +74,18 @@ router.get('/shop', (req, res) => {
 //===========
 // PUT
 //===========
-router.put('/shop/:id', (req, res)=>{
+router.put('/shop/:id/edit', (req, res)=>{
     Product.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
         res.redirect('/shop/new');
+    });
+});
+
+//===========
+// PUT
+//===========
+router.put('/shop/:id', (req, res)=>{
+    Product.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
+        res.redirect('/shop/');
     });
 });
 
