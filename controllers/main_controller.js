@@ -75,7 +75,7 @@ router.get('/shop', (req, res) => {
 // PUT
 //===========
 router.put('/shop/:id', (req, res)=>{
-    Product.findByIdAndUpdate(req.params._id, req.body, {new:true}, (err, updatedModel)=>{
+    Product.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
         res.redirect('/shop/new');
     });
 });

@@ -6,8 +6,52 @@
     <title></title>
   </head>
   <body>
-<h1><%=product.name%></h1>
-  </div>
-</div>
+    <% include ../partials/nav.ejs %>
+      <div class="container showbox">
+        <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <th class="header-text" scope="col">Name</th>
+            <th class="header-text" scope="col">Desc</th>
+            <th class="header-text" scope="col">Price</th>
+            <th class="header-text" scope="col">Img</th>
+            <th class="header-text" scope="col">Qty</th>
+            <th class="header-text" scope="col"></th>
+          </thead>
+          <tr>
+            <form action="/shop/<%=product.id%>?_method=PUT" method="POST">
+
+            <th class="info-table" scope="col">
+              <input type="text" name="name" value="<%=product.name%>"/>
+            </th>
+            <th class="info-table" scope="col">
+              <input type="text" name="description" value="<%=product.description%>"/>
+            </th>
+            <th class="info-table" scope="col">
+              <input type="text" name="price" value="<%=product.price%>"/>
+            </th>
+            <th class="info-table" scope="col">
+              <input type="text" name="img" value="<%=product.img%>"/>
+            </th>
+            <th class="info-table">
+              <input type="text" name="qty" value="<%=product.qty%>"/>
+            </th>
+
+              <!-- <th scope="col"> -->
+                  <!-- <input type="submit" value="UPDATE" class="btn btn-primary"/> -->
+
+              <!-- </th> -->
+              <!-- </form> -->
+          </tr>
+        </table>
+        </div>
+          <div class="div-button">
+            <input type="submit" value="UPDATE" class="btn btn-primary"/>
+            </form>
+            <form method='GET' action='/shop'>
+              <button class="btn btn-success" type='submit'>BACK</button>
+            </form>
+          </div>
+      </div>
   </body>
 </html>
