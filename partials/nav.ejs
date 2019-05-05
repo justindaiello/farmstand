@@ -16,7 +16,12 @@
       </li>
     </ul>
 </div>
-  <form method='GET' action='/login'>
-    <button class="btn btn-success" type='submit'>Log In</button>
-  </form>
+<% if (!currentUser) {%>
+<form method='GET' action='/login'>
+  <button class="btn btn-success" type='submit'>Log In</button>
+</form>
+<% } else {%>
+  <form method='GET' action='/logout'>
+    <button class="btn btn-light" type='submit'>Log Out</button>
+  </form>  <% } %>
 </nav>

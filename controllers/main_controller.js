@@ -3,13 +3,15 @@
 //=============
 const express = require('express');
 const router = express.Router();
-const Product = require('../models/products.js')
+const Product = require('../models/products.js');
+const User = require('../models/users.js');
+const mid = require('../middleware/mid.js')
 
 
 //=========================
 // FARMERS PAGE / NEW ROUTE
 //=========================
-router.get('/shop/new', (req, res) => {
+router.get('/shop/new', (req, res, next) => {
   Product.find({}, (err, allProducts) => {
     res.render('new.ejs', { product: allProducts } )
   })
@@ -18,7 +20,7 @@ router.get('/shop/new', (req, res) => {
 //==============
 // POST
 //==============
-router.post('/shop/', (req, res) => {
+router.post('/shop/', (req, res, next) => {
   Product.create(req.body, (err, createdProduct) => {
     res.redirect('/shop/new')
   })
@@ -28,21 +30,58 @@ router.post('/shop/', (req, res) => {
 // INDEX
 //==========
 //localhost:3000
-router.get('/' , (req, res) => {
+router.get('/' , (req, res, next) => {
   res.render('index.ejs');
 });
 
 //===============
 // REGISTER PAGE
 //===============
-router.get('/register', (req, res) => {
+router.get('/register', (req, res, next) => {
   res.render('register.ejs');
+})
+
+router.post('/register', (req, res, next) => {
+  if (req.body.email &&
+      req.body.name &&
+      req.body.password &&
+      req.body.confirmPassword) {
+      //confirm passwords match
+
+        if (req.body.password !== req.body.confirmPassword) {
+          const err = new Error('Passwords do not match');
+          err.status = 400;
+          return next(err);
+        }
+
+        //create object for form data
+        const userData = {
+          email: req.body.email,
+          name: req.body.name,
+          password: req.body.password
+        };
+
+        // use schema's create method to insert doc into mongo
+        User.create(userData, (error, user) => {
+          if (error) {
+            return next(error);
+          } else {
+            req.session.userId = user._id;
+            return res.redirect('/shop/new')
+          }
+        })
+
+      } else {
+        const err = new Error('All fields required');
+        err.status = 400;
+        return next(err);
+      }
 })
 
 //===============
 // EDIT PRODUCTS
 //===============
-router.get('/shop/:id/edit', (req, res)=>{
+router.get('/shop/:id/edit', (req, res, next)=>{
     Product.findById(req.params.id, (err, foundProducts)=>{
         res.render(
     		'edit.ejs',
@@ -56,7 +95,7 @@ router.get('/shop/:id/edit', (req, res)=>{
 //==============
 // SHOW PAGE
 //==============
-router.get('/shop/:id', (req, res)=>{
+router.get('/shop/:id', (req, res, next)=>{
   Product.findById(req.params.id, (err, foundProduct) => {
   res.render('show.ejs', { product: foundProduct })
   })
@@ -65,14 +104,50 @@ router.get('/shop/:id', (req, res)=>{
 //===========
 // LOGIN
 //===========
-router.get('/login', (req, res) => {
+router.get('/login', (req, res, next) => {
   res.render('login.ejs')
+})
+
+//Post for /login
+router.post('/login', (req, res, next) => {
+  if (req.body.email && req.body.password) {
+    User.authenticate(req.body.email, req.body.password, (error, user) => {
+      if (error || !user) {
+        const err = new Error('Wrong email or password.');
+        err.status = 401;
+        return next(err);
+      } else {
+        req.session.userId = user._id;
+        return res.redirect('/shop/new')
+      }
+    });
+  } else {
+    const err = new Error('Email and password are required.');
+    err.status = 401;
+    return next(err);
+  }
+})
+
+//==========
+// LOGOUT
+//==========
+router.get('/logout', (req, res, next) => {
+  if (req.session) {
+    //delete session
+    req.session.destroy( (err) => {
+      if (err) {
+        return next(err);
+      } else {
+        return res.redirect('/')
+      }
+    });
+  }
 })
 
 //======================
 // SHOP / PRODUCT INDEX
 //======================
-router.get('/shop', (req, res) => {
+router.get('/shop', (req, res, next) => {
   Product.find({}, (err, allProducts) => {
     res.render('shop.ejs', { product: allProducts } )
   })
@@ -81,7 +156,7 @@ router.get('/shop', (req, res) => {
 //===========
 // PUT
 //===========
-router.put('/shop/:id/edit', (req, res)=>{
+router.put('/shop/:id/edit', (req, res, next)=>{
     Product.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
         res.redirect('/shop/new');
     });
@@ -90,7 +165,7 @@ router.put('/shop/:id/edit', (req, res)=>{
 //===========
 // PUT
 //===========
-router.put('/shop/:id', (req, res)=>{
+router.put('/shop/:id', (req, res, next)=>{
     Product.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
         res.redirect(`/shop/${req.params.id}`);
     });
@@ -99,7 +174,7 @@ router.put('/shop/:id', (req, res)=>{
 //========
 // DELETE
 //========
-router.delete('/shop/:id/edit', (req, res) => {
+router.delete('/shop/:id/edit', (req, res, next) => {
   Product.findByIdAndRemove(req.params.id, (err, data) => {
     res.redirect('/shop/new')
   })
@@ -108,7 +183,7 @@ router.delete('/shop/:id/edit', (req, res) => {
 //============
 // SEED DATA
 //============
-router.get('/shop/seed', (req, res) => {
+router.get('/shop/seed', (req, res, next) => {
   Product.create([
     {
       name: 'Carrots',

@@ -5,6 +5,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const methodOverride  = require('method-override');
+const session = require('express-session')
 const bodyParser = require('body-parser');
 const db = mongoose.connection;
 
@@ -16,6 +17,21 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 app.use(express.static('public'));
 app.use(express.json());
 app.use(bodyParser.urlencoded());
+
+//use sessions middleware for tracking logins
+app.use(session({
+  secret: 'muffins',
+  resave: true,
+  saveUninitialized: false,
+}));
+
+// make user ID available in the templates middleware
+app.use((req, res, next) => {
+  res.locals.currentUser = req.session.userId;
+  next();
+})
+
+
 
 //=============
 // CONTROLLER
@@ -47,6 +63,22 @@ db.on('open' , ()=>{
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
 db.on('disconnected', () => console.log('mongo disconnected'));
+
+// Get the 404 and send it to the error handler
+app.use((req, res, next) => {
+  const err = new Error('lalala');
+  err.status = 404;
+  next(err);
+});
+
+//Error handler...needs to be last middleware.
+app.use( (req, res) => {
+  res.status(err.status || 500);
+  res.render('error.ejs', {
+    message: err.message,
+    error: {}
+  });
+})
 
 //==========
 // LISTENER
