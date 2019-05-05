@@ -26,9 +26,9 @@
         </thead>
         <tr>
           <th class="info-table" scope="col"><%=product.name%></th>
-          <th class="info-table" scope="col"><%=product.price%></th>
-          <th class="info-table" scope="col"><%=product.name%></th>
-          <th class="info-table prod-qty" scope="col"><%=product.qty%></th>
+          <th class="info-table" scope="col">$<%=product.price%>/lb</th>
+          <th class="info-table" scope="col"><%=product.farmName%></th>
+          <th class="info-table prod-qty" scope="col"><%=product.qty%>/lbs</th>
           <!-- out of stock message pops up if qty goes to zero and takes away reserve option -->
           <% if (product.qty <= 0) { %>
             <th class="info-table">OUT OF STOCK</th>
@@ -53,9 +53,9 @@
     <!-- Modal - pops up when the more info button is clicked -->
     <div class="modal fade" id="veggieModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
+        <div class="modal-content my-modal">
           <div class="modal-header">
-            <h5 class="modal-title" id="modalTitle"><%=product.name%> from:</h5>
+            <h5 class="modal-title text-center" id="modalTitle"><%=product.name%> from: <%=product.farmName%></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -64,7 +64,7 @@
             <%=product.description%>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>

@@ -82,6 +82,9 @@ body {
 }
 
 .eater-desc {
+  /* typography */
+  font-size: 0.35em;
+
   /* visual (hidden) */
   opacity: 0;
 }
@@ -235,6 +238,10 @@ body {
 }
 
 /* ******END WORKAROUND******* */
+
+.my-modal {
+  /* background: var(--green); */
+}
 
 /* ====================== */
 /* LOGIN & REGISTER PAGES */
