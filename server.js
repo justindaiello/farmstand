@@ -18,7 +18,7 @@ app.use(express.static('public'));
 app.use(express.json());
 app.use(bodyParser.urlencoded());
 
-//use sessions middleware for tracking logins
+//use sessions middleware for tracking logins. NOT in an .env file for class presentation.
 app.use(session({
   secret: 'muffins',
   resave: true,
@@ -29,13 +29,13 @@ app.use(session({
 app.use((req, res, next) => {
   res.locals.currentUser = req.session.userId;
   next();
-})
+});
 
 //=============
 // CONTROLLER
 //=============
 const controller = require('./controllers/main_controller.js');
-app.use('/', controller)
+app.use('/', controller);
 
 //=======
 // PORT
@@ -51,7 +51,7 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/farmst
 
 // Connect to Mongo
 mongoose.connect(MONGODB_URI ,  { useNewUrlParser: true});
-db.on('open' , ()=>{
+db.on('open', () => {
   console.log('connected to mongo');
 });
 
@@ -64,7 +64,7 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 
 // Get the 404 and send it to the error handler
 app.use((req, res, next) => {
-  const err = new Error('Uh oh! I looks like that page doesn\'t exist!');
+  const err = new Error('Uh oh! I looks like this page doesn\'t exist!');
   err.status = 404;
   next(err);
 });
