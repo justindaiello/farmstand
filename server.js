@@ -25,13 +25,11 @@ app.use(session({
   saveUninitialized: false,
 }));
 
-// make user ID available in the templates middleware
+//make the user ID available in the templates middleware
 app.use((req, res, next) => {
   res.locals.currentUser = req.session.userId;
   next();
 })
-
-
 
 //=============
 // CONTROLLER
@@ -66,13 +64,13 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 
 // Get the 404 and send it to the error handler
 app.use((req, res, next) => {
-  const err = new Error('lalala');
+  const err = new Error('Uh oh! I looks like that page doesn\'t exist!');
   err.status = 404;
   next(err);
 });
 
 //Error handler...needs to be last middleware.
-app.use( (req, res) => {
+app.use( (err, req, res, next) => {
   res.status(err.status || 500);
   res.render('error.ejs', {
     message: err.message,

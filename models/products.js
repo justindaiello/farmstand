@@ -6,9 +6,10 @@ const mongoose = require('mongoose');
 //SCHEMA
 //=======
 const productSchema = new mongoose.Schema({
-  name: String,
-  description: String,
-  img: String,
+  name: { type: String, required: true },
+  description: { type: String, required: true },
+  img: { type: String, required: true },
+  farmName: { type: String, required: true },
   price: { type: Number, min: 0, required: true },
   qty: { type: Number, required: true }
 });

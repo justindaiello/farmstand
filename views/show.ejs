@@ -6,7 +6,9 @@
     <title></title>
   </head>
   <body>
+    <!-- nav-bar -->
   <% include ../partials/nav.ejs %>
+    <!-- table with info on the item that was generated -->
     <div class="container showbox">
       <div class="table-responsive">
       <table class="table">
@@ -16,6 +18,7 @@
           <th class="header-text" scope="col">Farm</th>
           <th class="header-text" scope="col">Quantity Available</th>
           <th class="header-text" scope="col">
+            <!-- button to open modal -->
             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#veggieModal">
               MORE INFO
             </button>
@@ -26,11 +29,11 @@
           <th class="info-table" scope="col"><%=product.price%></th>
           <th class="info-table" scope="col"><%=product.name%></th>
           <th class="info-table prod-qty" scope="col"><%=product.qty%></th>
-
+          <!-- out of stock message pops up if qty goes to zero and takes away reserve option -->
           <% if (product.qty <= 0) { %>
             <th class="info-table">OUT OF STOCK</th>
             <%  } else {%>
-
+          <!-- show qty availably if value of above 0 -->
             <th scope="col">
               <form action="/shop/<%=product.id%>?_method=PUT" method="POST">
                 <input type="hidden" name="qty" value="<%=product.qty - 1%>"/>
@@ -47,7 +50,7 @@
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal - pops up when the more info button is clicked -->
     <div class="modal fade" id="veggieModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">

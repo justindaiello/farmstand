@@ -15,6 +15,9 @@ body {
   /* typography */
   font-family: 'Work Sans', sans-serif;
 }
+/* ============== */
+/* NAVIGATION BAR */
+/* ============== */
 
 .navbar {
   /* visual */
@@ -30,9 +33,13 @@ body {
 .collapse {
   /* box-model */
   padding-right: 1em;
+
   /* positioning */
   justify-content: flex-end;
 }
+/* ========= */
+/*   INDEX   */
+/* ========= */
 
 .buyer-info {
   /* box-model */
@@ -69,9 +76,9 @@ body {
 
   /* visual */
   color: var(--white);
-  /* background: var(--green); */
   border-radius: 1em;
   transition: height .5s;
+  cursor: pointer;
 }
 
 .eater-desc {
@@ -102,7 +109,7 @@ body {
 }
 
 /* =============== */
-/*    shop page */
+/*    SHOP PAGE    */
 /* =============== */
 
 .photo-box {
@@ -148,11 +155,6 @@ body {
   border: 3px solid rgba(255, 255, 255, 1)
 }
 
-.photos:hover .pop-container {
-  /* visual */
-  /* opacity: 1; */
-}
-
 .product-desc {
   /* typography */
   font-size: 1.5em;
@@ -163,7 +165,7 @@ body {
 }
 
 /* ========== */
-/* show pages */
+/* SHOP PAGES */
 /* ========== */
 
 .table {
@@ -185,7 +187,6 @@ body {
 }
 
 .info-table {
-
   /* typography */
   color: var(--white);
   font-size: 1.2em;
@@ -214,7 +215,7 @@ body {
   padding-right: 20px;
 }
 
-/* ******workaround for bootstrap modal bug**** */
+/* ******workaround for bootstrap modal bug thx stackoverflow******** */
 .fade.in {
   opacity: 1;
 }
@@ -235,8 +236,9 @@ body {
 
 /* ******END WORKAROUND******* */
 
-/* LOGIN PAGE */
-
+/* ====================== */
+/* LOGIN & REGISTER PAGES */
+/* ====================== */
 
 .login-top,
 .login {
@@ -246,6 +248,18 @@ body {
 }
 
 .login-text {
+  /* typography */
+  color: var(--white);
+}
+
+/* ========== */
+/* ERROR PAGE */
+/* ========== */
+
+.err-msg {
+  /* box-model */
+  margin-top: 1em;
+
   /* typography */
   color: var(--white);
 }
