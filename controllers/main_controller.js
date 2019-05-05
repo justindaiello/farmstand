@@ -11,11 +11,19 @@ const mid = require('../middleware/mid.js')
 //=========================
 // FARMERS PAGE / NEW ROUTE
 //=========================
-router.get('/shop/new', (req, res, next) => {
-  Product.find({}, (err, allProducts) => {
-    res.render('new.ejs', { product: allProducts } )
-  })
+router.get('/shop/new', mid.requiresLogin, (req, res, next) => {
+  User.findById(req.session.userId)
+    .exec( (error, user) => {
+      if (error) {
+        return next(error)
+      } else {
+        Product.find({}, (err, allProducts) => {
+          res.render('new.ejs', { product: allProducts } )
+        })
+      }
+    });
 })
+
 
 //==============
 // POST
@@ -81,16 +89,24 @@ router.post('/register', (req, res, next) => {
 //===============
 // EDIT PRODUCTS
 //===============
-router.get('/shop/:id/edit', (req, res, next)=>{
-    Product.findById(req.params.id, (err, foundProducts)=>{
-        res.render(
-    		'edit.ejs',
-    		{
-    			product: foundProducts
-    		}
-    	);
+router.get('/shop/:id/edit', mid.requiresLogin, (req, res, next)=>{
+  User.findById(req.session.userId)
+    .exec( (error, user) => {
+      if (error) {
+        return next(error)
+      } else {
+        Product.findById(req.params.id, (err, foundProducts)=>{
+            res.render(
+            'edit.ejs',
+            {
+              product: foundProducts
+            }
+          );
+        });
+      }
     });
 });
+
 
 //==============
 // SHOW PAGE
