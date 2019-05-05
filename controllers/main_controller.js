@@ -199,12 +199,13 @@ router.delete('/shop/:id/edit', (req, res, next) => {
 //============
 // SEED DATA
 //============
-router.get('/shop/seed', (req, res, next) => {
+router.get('/seed', (req, res, next) => {
   Product.create([
     {
       name: 'Carrots',
       description: 'Freshly picked carrots with greens.',
       img: 'https://i.imgur.com/wQCvaQ0.jpg',
+      farmName: 'Skylight Farm',
       price: 4,
       qty: 10
     },
@@ -212,6 +213,7 @@ router.get('/shop/seed', (req, res, next) => {
       name: 'Lettuce',
       description: 'Fresh heads of red and green butter lettuce.',
       img: 'https://i.imgur.com/c4hAQqW.jpg',
+      farmName: 'Skylight Farm',
       price: 4,
       qty: 10
     },
@@ -219,6 +221,7 @@ router.get('/shop/seed', (req, res, next) => {
       name: 'Beans',
       description: 'Freshly picked green and purple beans',
       img: 'https://i.imgur.com/0goMThl.jpg',
+      farmName: 'Archer\'s Farm',
       price: 4,
       qty: 10
     },
