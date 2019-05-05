@@ -7,7 +7,7 @@ $('.buyer-info').on('click', () => {
   $('.buyer-info').toggleClass('show-desc')
 })
 
-
+//Bootstram modal function
 $('#myModal').on('shown.bs.modal', function () {
   $('#myInput').trigger('focus')
 })

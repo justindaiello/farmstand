@@ -232,4 +232,19 @@ body {
     opacity: 0.5 !important;
 }
 
-/* END WORKAROUND */
+/* ******END WORKAROUND******* */
+
+/* LOGIN PAGE */
+
+
+.login-top,
+.login {
+  /* box-model */
+  width: 60%;
+  margin-top: 1em;
+}
+
+.login-text {
+  /* typography */
+  color: var(--white);
+}

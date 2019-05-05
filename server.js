@@ -8,7 +8,6 @@ const methodOverride  = require('method-override');
 const bodyParser = require('body-parser');
 const db = mongoose.connection;
 
-
 //============
 // MIDDLEWARE
 //============
@@ -30,8 +29,6 @@ app.use('/', controller)
 // Allow use of Heroku's port or your own local port, depending on the environment
 const PORT = process.env.PORT || 3000;
 
-
-
 //===========
 // DATABASE
 //===========
@@ -50,11 +47,6 @@ db.on('open' , ()=>{
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
 db.on('disconnected', () => console.log('mongo disconnected'));
-
-// open the connection to mongo
-
-
-
 
 //==========
 // LISTENER
