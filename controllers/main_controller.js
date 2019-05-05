@@ -85,7 +85,7 @@ router.put('/shop/:id/edit', (req, res)=>{
 //===========
 router.put('/shop/:id', (req, res)=>{
     Product.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
-        res.redirect('/shop/');
+        res.redirect(`/shop/${req.params.id}`);
     });
 });
 

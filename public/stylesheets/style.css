@@ -3,6 +3,7 @@
   --white: rgb(255,255,255);
   --blue: radial-gradient(rgba(153,207,229,1), rgba(153,207,229,.4));
   --green: linear-gradient(rgba(45,71,35,.5), rgba(45,71,35,.4));
+  --black: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.4))
 }
 
 body {
@@ -10,7 +11,6 @@ body {
   background: url('https://i.imgur.com/pXmQYGH.jpg');
   background-size: cover;
   background-position: center;
-
 
   /* typography */
   font-family: 'Work Sans', sans-serif;
@@ -26,16 +26,12 @@ body {
   font-size: 40px;
 }
 
+
 .collapse {
   /* box-model */
   padding-right: 1em;
   /* positioning */
   justify-content: flex-end;
-}
-
-.buyer-info {
-  /* visual */
-  /* background-image: url("https://i.imgur.com/c4hAQqW.jpg"); */
 }
 
 .buyer-info {
@@ -73,7 +69,7 @@ body {
 
   /* visual */
   color: var(--white);
-  background: var(--green);
+  /* background: var(--green); */
   border-radius: 1em;
   transition: height .5s;
 }
@@ -209,6 +205,12 @@ body {
   /* typography */
   text-align: center;
   color: var(--white);
+}
+
+.reserve {
+  /* box-model */
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 /* ******workaround for bootstrap modal bug**** */

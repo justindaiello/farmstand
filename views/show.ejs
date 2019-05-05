@@ -15,7 +15,11 @@
           <th class="header-text" scope="col">Price</th>
           <th class="header-text" scope="col">Farm</th>
           <th class="header-text" scope="col">Quantity Available</th>
-          <th class="header-text" scope="col"></th>
+          <th class="header-text" scope="col">
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#veggieModal">
+              MORE INFO
+            </button>
+          </th>
         </thead>
         <tr>
           <th class="info-table" scope="col"><%=product.name%></th>
@@ -30,7 +34,7 @@
             <th scope="col">
               <form action="/shop/<%=product.id%>?_method=PUT" method="POST">
                 <input type="hidden" name="qty" value="<%=product.qty - 1%>"/>
-                <input type="submit" value="RESERVE" class="btn btn-primary"/>
+                <input type="submit" value="RESERVE" class="reserve btn btn-primary"/>
               </form>
             </th> <% } %>
         </tr>
@@ -41,6 +45,26 @@
             <button class="btn btn-success" type='submit'>BACK</button>
           </form>
         </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="veggieModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitle"><%=product.name%> from:</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%=product.description%>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

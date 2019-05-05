@@ -14,6 +14,7 @@
             <th class="header-text" scope="col">Name</th>
             <th class="header-text" scope="col">Desc</th>
             <th class="header-text" scope="col">Price</th>
+            <th class="header-text" scope="col">Image</th>
           </thead>
           <tr>
             <form action="/shop/<%=product.id%>/edit?_method=PUT" method="POST">
@@ -26,16 +27,19 @@
             <th class="info-table" scope="col">
               <input type="text" name="price" value="<%=product.price%>"/>
             </th>
-          </tr>
-          <thead>
-            <th class="header-text" scope="col">Img</th>
-            <th class="header-text" scope="col">Qty</th>
-            <th class="header-text" scope="col"></th>
-          </thead>
-          <tr>
             <th class="info-table" scope="col">
               <input type="text" name="img" value="<%=product.img%>"/>
             </th>
+          </tr>
+          <thead>
+            <!-- <th class="header-text" scope="col">Img</th> -->
+            <th></th>
+            <th class="header-text" scope="col">Qty</th>
+            <th></th>
+            <th></th>
+          </thead>
+          <tr>
+            <th></th>
             <th class="info-table">
               <input type="text" name="qty" value="<%=product.qty%>"/>
             </th>
