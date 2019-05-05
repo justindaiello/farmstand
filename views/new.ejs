@@ -9,7 +9,7 @@
     <!-- navbar -->
     <% include ../partials/nav.ejs %>
     <div class='container'>
-          <h1 class="farmer-header">Add a Vegetable</h1>
+          <h1 class="farmer-header">Welcome!</h1>
           <div class="form-group">
             <form class="form-inline" action="/shop" method="POST">
                 <input type="text" name="name" placeholder="Name"/><br/>
@@ -31,7 +31,7 @@
               </thead>
               <% for (let i = 0; i < product.length; i ++) { %>
                 <!-- Modal -->
-                <!-- <div id="myModal<%=i%>" class="modal fade" role="dialog"> -->            
+                <!-- <div id="myModal<%=i%>" class="modal fade" role="dialog"> -->
               <tr>
                 <th class="info-table" scope="col"><%=product[i].name%></th>
                 <th class="info-table" scope="col"><%=product[i].price%></th>

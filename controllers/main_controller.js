@@ -13,16 +13,16 @@ const mid = require('../middleware/mid.js')
 //=========================
 router.get('/shop/new', mid.requiresLogin, (req, res, next) => {
   User.findById(req.session.userId)
-    .exec( (error, user) => {
+    .exec((error, user) => {
       if (error) {
-        return next(error)
+      next(error);
       } else {
         Product.find({}, (err, allProducts) => {
-          res.render('new.ejs', { product: allProducts } )
-        })
-      }
+          res.render('new.ejs', { product: allProducts });
+        });
+      };
     });
-})
+});
 
 
 //==============
@@ -30,14 +30,13 @@ router.get('/shop/new', mid.requiresLogin, (req, res, next) => {
 //==============
 router.post('/shop/', (req, res, next) => {
   Product.create(req.body, (err, createdProduct) => {
-    res.redirect('/shop/new')
-  })
-})
+    res.redirect('/shop/new');
+  });
+});
 
 //==========
 // INDEX
 //==========
-//localhost:3000
 router.get('/' , (req, res, next) => {
   res.render('index.ejs');
 });
@@ -49,6 +48,7 @@ router.get('/register', (req, res, next) => {
   res.render('register.ejs');
 })
 
+//post for register
 router.post('/register', (req, res, next) => {
   if (req.body.email &&
       req.body.name &&
@@ -59,8 +59,8 @@ router.post('/register', (req, res, next) => {
         if (req.body.password !== req.body.confirmPassword) {
           const err = new Error('Passwords do not match');
           err.status = 400;
-          return next(err);
-        }
+          next(err);
+        };
 
         //create object for form data
         const userData = {
@@ -72,38 +72,33 @@ router.post('/register', (req, res, next) => {
         // use schema's create method to insert doc into mongo
         User.create(userData, (error, user) => {
           if (error) {
-            return next(error);
+          next(error);
           } else {
             req.session.userId = user._id;
-            return res.redirect('/shop/new')
-          }
-        })
+            res.redirect('/shop/new');
+          };
+        });
 
       } else {
         const err = new Error('All fields required');
         err.status = 400;
-        return next(err);
+        next(err);
       }
 })
 
 //===============
 // EDIT PRODUCTS
 //===============
-router.get('/shop/:id/edit', mid.requiresLogin, (req, res, next)=>{
+router.get('/shop/:id/edit', mid.requiresLogin, (req, res, next) => {
   User.findById(req.session.userId)
     .exec( (error, user) => {
       if (error) {
-        return next(error)
+      next(error);
       } else {
-        Product.findById(req.params.id, (err, foundProducts)=>{
-            res.render(
-            'edit.ejs',
-            {
-              product: foundProducts
-            }
-          );
+        Product.findById(req.params.id, (err, foundProducts) => {
+            res.render('edit.ejs', { product: foundProducts });
         });
-      }
+      };
     });
 });
 
@@ -111,53 +106,54 @@ router.get('/shop/:id/edit', mid.requiresLogin, (req, res, next)=>{
 //==============
 // SHOW PAGE
 //==============
-router.get('/shop/:id', (req, res, next)=>{
+router.get('/shop/:id', (req, res, next) => {
   Product.findById(req.params.id, (err, foundProduct) => {
-  res.render('show.ejs', { product: foundProduct })
-  })
+  res.render('show.ejs', { product: foundProduct });
+  });
 });
 
 //===========
 // LOGIN
 //===========
 router.get('/login', mid.loggedOut, (req, res, next) => {
-  res.render('login.ejs')
+  res.render('login.ejs');
 })
 
-//Post for /login
+//post for login
 router.post('/login', (req, res, next) => {
   if (req.body.email && req.body.password) {
     User.authenticate(req.body.email, req.body.password, (error, user) => {
       if (error || !user) {
         const err = new Error('Wrong email or password.');
         err.status = 401;
-        return next(err);
+        next(err);
       } else {
         req.session.userId = user._id;
-        return res.redirect('/shop/new')
-      }
+        res.redirect('/shop/new')
+      };
     });
   } else {
     const err = new Error('Email and password are required.');
     err.status = 401;
-    return next(err);
-  }
-})
+    next(err);
+  };
+});
 
 //==========
 // LOGOUT
 //==========
 router.get('/logout', (req, res, next) => {
+//if there is a current session..
   if (req.session) {
-    //delete session
+//delete session
     req.session.destroy( (err) => {
       if (err) {
         return next(err);
       } else {
-        return res.redirect('/')
-      }
+        res.redirect('/')
+      };
     });
-  }
+  };
 })
 
 //======================
@@ -165,15 +161,16 @@ router.get('/logout', (req, res, next) => {
 //======================
 router.get('/shop', (req, res, next) => {
   Product.find({}, (err, allProducts) => {
-    res.render('shop.ejs', { product: allProducts } )
-  })
-})
+    res.render('shop.ejs', { product: allProducts });
+  });
+});
 
 //===========
 // PUT
 //===========
-router.put('/shop/:id/edit', (req, res, next)=>{
-    Product.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
+//for farmer to update all of the details of their item on the edit page.
+router.put('/shop/:id/edit', (req, res, next) => {
+    Product.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel) => {
         res.redirect('/shop/new');
     });
 });
@@ -181,9 +178,10 @@ router.put('/shop/:id/edit', (req, res, next)=>{
 //===========
 // PUT
 //===========
-router.put('/shop/:id', (req, res, next)=>{
-    Product.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
-        res.redirect(`/shop/${req.params.id}`);
+//for customers to reserve items and subtract from product.qty in the database
+router.put('/shop/:id', (req, res, next) => {
+    Product.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel) => {
+        res.redirect(`/shop/${req.params.id}`); //redirect back to previous ID page.
     });
 });
 
@@ -192,9 +190,9 @@ router.put('/shop/:id', (req, res, next)=>{
 //========
 router.delete('/shop/:id/edit', (req, res, next) => {
   Product.findByIdAndRemove(req.params.id, (err, data) => {
-    res.redirect('/shop/new')
-  })
-})
+    res.redirect('/shop/new');
+  });
+});
 
 //============
 // SEED DATA
