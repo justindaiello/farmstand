@@ -92,6 +92,7 @@ body {
 .line {
   /* box-model */
   margin-top: 14em;
+  height: .15em;
 
   /* positioning */
   align-self: flex-end;

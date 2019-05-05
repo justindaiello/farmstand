@@ -33,6 +33,13 @@ router.get('/' , (req, res) => {
 });
 
 //===============
+// REGISTER PAGE
+//===============
+router.get('/register', (req, res) => {
+  res.render('register.ejs');
+})
+
+//===============
 // EDIT PRODUCTS
 //===============
 router.get('/shop/:id/edit', (req, res)=>{
