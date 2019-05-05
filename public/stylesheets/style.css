@@ -247,10 +247,15 @@ body {
 /* LOGIN & REGISTER PAGES */
 /* ====================== */
 
+.register-form,
+.login-form {
+  /* box-model */
+  width: 50%;
+}
+
 .login-top,
 .login {
   /* box-model */
-  width: 60%;
   margin-top: 1em;
 }
 
