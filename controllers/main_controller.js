@@ -92,7 +92,7 @@ router.put('/shop/:id', (req, res)=>{
 //========
 // DELETE
 //========
-router.delete('/shop/new', (req, res) => {
+router.delete('/shop/:id/edit', (req, res) => {
   Product.findByIdAndRemove(req.params.id, (err, data) => {
     res.redirect('/shop/new')
   })
