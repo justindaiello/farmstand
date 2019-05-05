@@ -104,7 +104,7 @@ router.get('/shop/:id', (req, res, next)=>{
 //===========
 // LOGIN
 //===========
-router.get('/login', (req, res, next) => {
+router.get('/login', mid.loggedOut, (req, res, next) => {
   res.render('login.ejs')
 })
 
