@@ -36,18 +36,21 @@
                 <th class="info-table" scope="col"><%=product[i].name%></th>
                 <th class="info-table" scope="col"><%=product[i].price%></th>
                 <th class="info-table" scope="col"><%=product[i].qty%></th>
-
+                <th scope="col">
                 <% if (product[i].qty <= 0) { %>
-                  <th class="info-table">OUT OF STOCK</th>
-                  <%  } else {%>
+                  <!-- red update button when item is out of stock -->
+                  <form action="/shop/<%=product[i].id%>/edit" method="GET">
+                    <input type="submit" value="UPDATE" class="btn btn-danger"/>
+                  </form>
+                  <% } else { %>
+                  <!-- regular update button when items are in stock -->
+                  <form action="/shop/<%=product[i].id%>/edit" method="GET">
+                    <input type="submit" value="UPDATE" class="btn btn-primary"/>
+                  </form> <% } %>
+                </th>
+                </tr>
+              </div>
 
-                  <th scope="col">
-                    <form action="/shop/<%=product[i].id%>/edit" method="GET">
-                      <input type="submit" value="UPDATE" class="btn btn-primary"/>
-                    </form>
-                  </th> <% } %>
-                  </div>
-              </tr>
                 <% } %>
             </table>
             </div>

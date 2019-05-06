@@ -246,6 +246,10 @@ body {
   /* background: var(--green); */
 }
 
+.modal-body {
+  padding-bottom: 5px;
+}
+
 /* ====================== */
 /* LOGIN & REGISTER PAGES */
 /* ====================== */
@@ -277,4 +281,25 @@ body {
 
   /* typography */
   color: var(--white);
+}
+
+
+@media only screen and (min-width: 1000px) {
+/* keep nav links centered until screen is small enough for toggle to appear */
+  .navbar-nav {
+    /* box-model */
+    margin:0 auto;
+    display: block;
+    padding-right: 8em;
+
+    /* typography */
+    text-align: center;
+  }
+
+  .navbar-nav li {
+    /* box-model */
+    display: inline-block;
+  }
+
+
 }
