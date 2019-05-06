@@ -306,7 +306,15 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
-  .line {
+  .buyer-info {
+    margin-top: 1em;
+  }
+
+  .eater-header {
+    margin-top: -1em;
+  }
+
+  .eater-desc {
     display: none;
   }
 }
