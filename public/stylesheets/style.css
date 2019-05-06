@@ -317,6 +317,11 @@ body {
   .eater-desc {
     display: none;
   }
+
+  .new-item {
+    width: 50%;
+    margin: 0 auto;
+  }
 }
 
 @media only screen and (min-width: 1000px) {
