@@ -29,6 +29,9 @@ body {
   font-size: 40px;
 }
 
+.navbar-collapse.collapse.in {
+  display: block!important;
+}
 
 .collapse {
   /* box-model */
