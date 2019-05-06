@@ -37,6 +37,7 @@
             <th scope="col">
               <form action="/shop/<%=product.id%>?_method=PUT" method="POST">
                 <input type="hidden" name="qty" value="<%=product.qty - 1%>"/>
+                <!-- <input type="text" placeholder="Quantity" name="qty" id="qty" /> -->
                 <input type="submit" value="RESERVE" class="reserve btn btn-primary"/>
               </form>
             </th> <% } %>
