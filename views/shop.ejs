@@ -5,21 +5,22 @@
     <meta charset="utf-8">
     <title></title>
   </head>
-  <body>
-    <% include ../partials/nav.ejs %>
-    <!-- <div class='container'> -->
-    <div class='photo-box'>
-    <% for (let i = 0; i < product.length; i ++) { %>
-    <div class='photos view overlay zoom'>
-      <a href="/shop/<%=product[i].id%>" class='img-tag'><img class='img-fluid' src="<%=product[i].img%>" alt=""></a>
-      <% if (product[i].qty <= 0) { %>
-      <!-- if product is out of stock replace price with out of stock message -->
-      <p class='product-desc'>OUT OF STOCK</p>
-      <% } else { %>
-      <p class='product-desc'><%=product[i].name%> $<%=product[i].price%>/lb</p>
-      <% } %>
-    </div>
-    <% } %>
-  </div>
-  </body>
+    <body>
+        <% include ../partials/nav.ejs %>
+        <!-- <div class='container'> -->
+        <div class='photo-box'>
+        <% for (let i = 0; i < product.length; i ++) { %>
+        <div class='photos view overlay zoom'>
+          <a href="/shop/<%=product[i].id%>" class='img-tag'><img class='img-fluid' src="<%=product[i].img%>" alt=""></a>
+          <% if (product[i].qty <= 0) { %>
+          <!-- if product is out of stock replace price with out of stock message -->
+          <p class='product-desc'>OUT OF STOCK</p>
+          <% } else { %>
+          <p class='product-desc'><%=product[i].name%> $<%=product[i].price%>/lb</p>
+          <% } %>
+        </div>
+        <% } %>
+        <% include ../partials/footer.ejs %>
+      </div>
+    </body>
 </html>
