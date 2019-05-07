@@ -1,9 +1,9 @@
 :root {
 
   --white: rgb(255,255,255);
-  --blue: radial-gradient(rgba(153,207,229,1), rgba(153,207,229,.4));
   --green: linear-gradient(rgba(45,71,35,.5), rgba(45,71,35,.4));
-  --black: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.4))
+  --black: rgba(0,0,0,.75);
+  --red: rgb(234,26,31);
 }
 
 body {
@@ -40,6 +40,20 @@ body {
   /* positioning */
   justify-content: flex-end;
 }
+
+.contact-modal {
+  /* typography */
+  text-align: center;
+  font-size: 2em;
+
+  /* visual */
+  background-color: var(--black);
+}
+
+.modal-close {
+  color: var(--red);
+}
+
 /* ========= */
 /*   INDEX   */
 /* ========= */

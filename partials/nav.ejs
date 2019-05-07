@@ -11,7 +11,10 @@
         <a class="nav-link" href="/register">Register <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/shop">Contact</a>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="modal" data-target="#contactModal" aria-haspopup="true" aria-expanded="false">
+            Contact
+          </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/shop">Shop</a>
@@ -36,4 +39,21 @@
         <button class="btn btn-light" type='submit'>Log Out</button>
       </form>  <% } %>
     </div>
+
+
+    <!-- Modal -->
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content contact-modal">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="modal-close">&times;</span>
+        </button>
+        <a href='https://github.com/justindaiello/justindaiello.github.io' target='_blank' rel='noopener'  class='fa fa-github'></a>
+        <a href='https://www.instagram.com/aiello.justin/'  target='blank' rel='noopener' class='fa fa-instagram'></a>
+        <a href='https://www.linkedin.com/in/jdaiello/' target='blank' rel='noopener' class='fa fa-linkedin'></a>
+      </div>
+    </div>
+  </div>
+</div>
 </nav>
