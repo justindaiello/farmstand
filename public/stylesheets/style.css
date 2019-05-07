@@ -2,7 +2,7 @@
 
   --white: rgb(255,255,255);
   --green: linear-gradient(rgba(45,71,35,.5), rgba(45,71,35,.4));
-  --black: rgba(0,0,0,.75);
+  --darkGreen: rgba(45,71,35,.75);
   --red: rgb(234,26,31);
 }
 
@@ -15,6 +15,7 @@ body {
   /* typography */
   font-family: 'Work Sans', sans-serif;
 }
+
 /* ============== */
 /* NAVIGATION BAR */
 /* ============== */
@@ -47,10 +48,11 @@ body {
   font-size: 2em;
 
   /* visual */
-  background-color: var(--black);
+  background-color: var(--darkGreen);
 }
 
 .modal-close {
+  /* visual */
   color: var(--red);
 }
 
@@ -173,7 +175,7 @@ body {
 
 .photos img:hover {
   /* visual */
-  border: 3px solid rgba(255, 255, 255, 1)
+  border: 3px solid var(--white);
 }
 
 .product-desc {
@@ -250,7 +252,6 @@ body {
   opacity: 0.5 !important;
 }
 
-
 .modal-backdrop.fade {
     opacity: 0.5 !important;
 }
@@ -263,6 +264,15 @@ body {
 
 .modal-body {
   padding-bottom: 5px;
+}
+
+.info-modal {
+  /* visual */
+  background: var(--darkGreen);
+
+  /* typography */
+  color: var(--white);
+  text-align: center;
 }
 
 /* ====================== */
@@ -348,7 +358,7 @@ body {
     /* box-model */
     margin:0 auto;
     display: block;
-    padding-right: 8em;
+    padding-right: 12em;
 
     /* typography */
     text-align: center;

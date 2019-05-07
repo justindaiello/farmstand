@@ -180,8 +180,8 @@ router.put('/shop/:id/edit', (req, res, next) => {
 //===========
 //for customers to reserve items and subtract from product.qty in the database
 router.put('/shop/:id', (req, res, next) => {
-    // let qty = req.params.qty
-    Product.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel) => {
+    let qty = parseInt(req.body.qty);
+    Product.findByIdAndUpdate(req.params.id, {$inc: {qty: -qty} }, {new:true}, (err, updatedModel) => {
         res.redirect(`/shop/${req.params.id}`); //redirect back to previous ID page.
     });
 });
