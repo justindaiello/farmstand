@@ -4,13 +4,18 @@
   --green: linear-gradient(rgba(45,71,35,.5), rgba(45,71,35,.4));
   --darkGreen: rgba(45,71,35,.75);
   --red: rgb(234,26,31);
+
+  --seaGreen: rgb(201,211,206);
+  --seaGreenNav: rgba(201,211,206, .4);
+  --darkKhaki: rgb(172,188,100);
+  --olive: rgb(60,32,19);
 }
 
 body {
   /* visual */
-  background: url('https://i.imgur.com/pXmQYGH.jpg');
+  background: url('https://i.imgur.com/M8LBtVJ.jpg') no-repeat center center fixed;
   background-size: cover;
-  background-position: center;
+  /* background-position: center; */
   height: 100%;
 
   /* typography */
@@ -23,12 +28,37 @@ body {
 
 .navbar {
   /* visual */
-  background: var(--green);
+  background: var(--seaGreenNav);
+}
+
+.fa.fa-navicon {
+  /* visual */
+  color: var(--white);
 }
 
 .navbar-brand {
   /* typography */
   font-size: 40px;
+}
+
+.navbar-brand:link,
+.navbar-brand:visited,
+.navbar-brand:hover,
+.navbar-brand:active {
+  /* visual */
+  color: var(--white);
+}
+
+.nav-link:link,
+.nav-link:visited,
+.nav-link:active {
+  /* visual */
+  color: var(--white);
+}
+
+.nav-link:hover {
+  /* visual */
+  color: var(--olive);
 }
 
 .navbar-collapse.collapse.in {
@@ -49,12 +79,21 @@ body {
   font-size: 2em;
 
   /* visual */
-  background-color: var(--darkGreen);
+  background-color: var(--seaGreen);
 }
 
 .modal-close {
   /* visual */
   color: var(--red);
+}
+
+.btn-navbar {
+
+  /* visual */
+  border: 2px solid var(--white);
+
+  /* typography */
+  color: white;
 }
 
 /* ========= */
@@ -448,13 +487,19 @@ body {
   }
 
   .show-img-div {
+    margin-top: 1em;
     margin-bottom: 1em;
     margin-left: 1.85em;
   }
 
   .show-row {
+    margin: 0 auto;
     flex-direction: column;
     justify-content: center;
+  }
+
+  .photo-box {
+    margin: 0 auto;
   }
 }
 
