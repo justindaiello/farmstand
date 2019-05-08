@@ -17,6 +17,7 @@ body {
   background-size: cover;
   /* background-position: center; */
   height: 100%;
+  min-width: 100%;
 
   /* typography */
   font-family: 'Work Sans', sans-serif;
@@ -74,26 +75,36 @@ body {
 }
 
 .contact-modal {
+  /* box-model */
+  padding-bottom: 0.5em;
+
   /* typography */
   text-align: center;
   font-size: 2em;
 
   /* visual */
-  background-color: var(--seaGreen);
+  background-color: var(--darkKhaki);
+  border: 2px solid var(--white);
 }
 
 .modal-close {
   /* visual */
-  color: var(--red);
+  color: var(--olive);
 }
 
-.btn-navbar {
-
+.btn-main {
   /* visual */
   border: 2px solid var(--white);
+  background: var(--darkKhaki);
 
   /* typography */
   color: white;
+}
+
+.btn-main:hover {
+  background: var(--olive);
+  color: var(--darkKhaki);
+  border: 2px solid var(--darkKhaki);
 }
 
 /* ========= */
@@ -163,7 +174,7 @@ body {
 /* =============== */
 .shop-container {
   /* visual */
-  background: var(--green)
+  background: var(--seaGreenNav);
 }
 
 .photo-box {
@@ -196,14 +207,14 @@ body {
   height: auto;
 
   /* visual */
-  border: 3px solid rgba(255, 255, 255, 0.4);
+  border: 3px solid var(--olive);
   transition: 0.5s;
 
 }
 
 .photos img:hover {
   /* visual */
-  border: 3px solid var(--white);
+  border: 3px solid var(--darkKhaki);
 }
 
 .product-desc {
@@ -395,6 +406,7 @@ body {
 .register-form,
 .login-form {
   /* box-model */
+  margin-top: 2em;
   width: 50%;
 }
 
@@ -439,7 +451,7 @@ body {
 }
 
 .line-div {
-  width: 98%;
+  width: 100%;
 }
 
 .footer-icons {
