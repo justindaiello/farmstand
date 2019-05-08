@@ -1,12 +1,12 @@
 # The FarmStand
 ### The FarmStand is a project by Justin Aiello for General Assembly's Software Engineering Immersive.
-### A link to the app can be found [Here](https://the-farm-stand.herokuapp.com/).
+### A link to the app can be found [here](https://the-farm-stand.herokuapp.com/).
 ##### The idea behind the app is to give shoppers a chance to reserve the best produce at the farmers market from their favorite farmers and show up to market whenever they would like to rather than try to get up extra early to get the best picks.
 ##### The app uses the following:
 1. Node.js
-  *Express
-  *bCryptJS
-  *EJS
+⋅⋅*Express
+⋅⋅*bCryptJS
+⋅⋅*EJS
 3. jQuery
 4. Mongoose
 5. MongoDB
