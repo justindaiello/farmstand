@@ -179,6 +179,78 @@ body {
 /* ========== */
 /* SHOP PAGES */
 /* ========== */
+.show-row {
+  /* box-model */
+  margin-top: 4em;
+}
+
+.show-img-div {
+  /* box-model */
+  padding-left: 4em;
+}
+
+.show-img {
+  /* box-model */
+  width: 65%;
+  height: auto;
+
+  /* visual */
+  border: 3px solid var(--white);
+}
+
+.show-info {
+  /* typography */
+  color: var(--white);
+}
+
+.show-header {
+  /* typography */
+  text-align: center;
+}
+
+.show-desc {
+  /* box-model */
+  padding-bottom: 1em;
+
+  /* typography */
+  text-indent: 1em;
+}
+
+.show-form {
+  /* box-model */
+  padding-top: 2em;
+  padding-bottom: 2em;
+
+  /* typography */
+  text-align: center;
+}
+
+.edit-form {
+
+  /* typography */
+  text-align: left;
+}
+
+.btnz {
+  /* positioning */
+  justify-content: center;
+}
+
+.update-btn {
+  /* box-model */
+  margin-right: 0.5em;
+}
+
+.delete-btn {
+  /* box-model */
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+.show-btn{
+  /* typography */
+  text-align: center;
+}
 
 .table {
   /* box-model */
@@ -227,6 +299,14 @@ body {
   padding-right: 20px;
 }
 
+.create-input {
+  padding-left: 1em;
+}
+
+.bottom-btn {
+  margin-bottom: 1em;
+}
+
 /* ******workaround for bootstrap modal bug thx stackoverflow******** */
 .fade.in {
   opacity: 1;
@@ -261,6 +341,11 @@ body {
 
   /* typography */
   color: var(--white);
+  text-align: center;
+}
+
+.edit-form-rows {
+  justify-content: center;
   text-align: center;
 }
 
@@ -315,7 +400,7 @@ body {
 }
 
 .line-div {
-  width: 95%;
+  width: 98%;
 }
 
 .footer-icons {
@@ -326,7 +411,7 @@ body {
 .line {
   /* box-model */
   height: .15em;
-  width: 90%;
+  width: 98%;
 
   /* positioning */
   align-self: flex-end;

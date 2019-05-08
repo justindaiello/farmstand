@@ -7,70 +7,32 @@
   </head>
   <body>
     <!-- nav-bar -->
-  <% include ../partials/nav.ejs %>
-    <!-- table with info on the item that was generated -->
-    <div class="container showbox">
-      <div class="table-responsive">
-      <table class="table">
-        <thead>
-          <th class="header-text" scope="col">Name</th>
-          <th class="header-text" scope="col">Price</th>
-          <th class="header-text" scope="col">Farm</th>
-          <th class="header-text" scope="col">Quantity Available</th>
-          <th class="header-text" scope="col">
-            <!-- button to open modal -->
-            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#veggieModal">
-              MORE INFO
-            </button>
-          </th>
-        </thead>
-        <tr>
-          <th class="info-table" scope="col"><%=product.name%></th>
-          <th class="info-table" scope="col">$<%=product.price%>/lb</th>
-          <th class="info-table" scope="col"><%=product.farmName%></th>
-          <th class="info-table prod-qty" scope="col"><%=product.qty%>/lbs</th>
-          <!-- out of stock message pops up if qty goes to zero and takes away reserve option -->
-          <% if (product.qty <= 0) { %>
-            <th class="info-table">OUT OF STOCK</th>
-            <%  } else {%>
-          <!-- show qty availably if value of above 0 -->
-            <th scope="col">
-              <form action="/shop/<%=product.id%>?_method=PUT" method="POST">
-                <!-- <input type="hidden" name="qty" value="<%=product.qty - 1%>"/> -->
-                <input type="text" placeholder="Quantity" name="qty" id="qty" />
-                <input type="submit" value="RESERVE" class="reserve btn btn-primary"/>
-              </form>
-            </th> <% } %>
-        </tr>
-      </table>
-      </div>
-        <div class="div-button">
-          <form method='GET' action='/shop'>
-            <button class="btn btn-success" type='submit'>BACK</button>
-          </form>
+    <% include ../partials/nav.ejs %>
+    <div class="container show-div">
+      <div class="row show-row">
+        <div class="col show-img-div">
+          <img src="<%=product.img%>" alt="" class="img-fluid show-img">
         </div>
-      <% include ../partials/footer.ejs %>
-    </div>
+        <div class="col show-info">
+          <h4 class="show-header"><%=product.name%> from: <%=product.farmName%></h4>
+          <h5 class="show-desc"><%=product.description%></h5>
 
-    <!-- Modal - pops up when the more info button is clicked -->
-    <div class="modal fade" id="veggieModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content my-modal info-modal">
-          <div class="modal-header">
-            <h5 class="modal-body" id="modalTitle"><%=product.name%> from: <%=product.farmName%></h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true" class="modal-close">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <h5><%=product.description%></h5>
-            <img class="img-fluid" src="<%=product.img%>" alt="">
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-          </div>
+        <% if (product.qty <= 0) { %>
+          <h6 class="text-center">Availability: OUT OF STOCK.</h6>
+        <%  } else {%>
+          <h6 class="text-center">Availability: <%=product.qty%>/lbs || Price: $<%=product.price%></h6>
+          <form action="/shop/<%=product.id%>?_method=PUT" method="POST" class="show-form">
+            <!-- <input type="hidden" name="qty" value="<%=product.qty - 1%>"/> -->
+            <input type="text" placeholder="Quantity" name="qty" id="qty" />
+            <input type="submit" value="RESERVE" class="reserve btn btn-primary"/>
+          </form>
+        <% } %>
+        <form method="GET" action="/shop" class="show-btn">
+          <button class="btn btn-success" type='submit'>BACK</button>
+        </form>
         </div>
       </div>
     </div>
+        <% include ../partials/footer.ejs %>
   </body>
 </html>

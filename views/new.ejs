@@ -10,7 +10,7 @@
     <% include ../partials/nav.ejs %>
     <div class='container'>
           <h1 class="farmer-header">Welcome!</h1>
-          <div class="form-group row new-item">
+          <div class="form-group row new-item create-input">
             <form class="form-inline" action="/shop" method="POST">
                 <input type="text" name="name" placeholder="Name"/><br/>
                 <input type="text" name="description" placeholder="Description"/><br/>
@@ -53,12 +53,12 @@
 
                 <% } %>
             </table>
-            </div>
-              <div class="div-button">
-                <form method='GET' action='/shop'>
-                  <button class="btn btn-success bottom-btn" type='submit'>BACK</button>
-                </form>
-              </div>
-              <% include ../partials/footer.ejs %>
-            </div>
+            <!-- </div> -->
+        <div class="div-button">
+          <form method='GET' action='/shop'>
+            <button class="btn btn-success bottom-btn" type='submit'>BACK</button>
+          </form>
+        </div>
+    </div>
+  </body>
 </html>

@@ -7,63 +7,56 @@
   </head>
   <body>
     <% include ../partials/nav.ejs %>
-      <div class="container showbox">
-        <div class="table-responsive">
-        <table class="table">
-          <thead>
-            <th class="header-text" scope="col">Name</th>
-            <th class="header-text" scope="col">Desc</th>
-            <th class="header-text" scope="col">Price</th>
-            <th class="header-text" scope="col">Image</th>
-          </thead>
-          <tr>
-            <form action="/shop/<%=product.id%>/edit?_method=PUT" method="POST">
-            <th class="info-table" scope="col">
-              <input type="text" name="name" value="<%=product.name%>"/>
-            </th>
-            <th class="info-table" scope="col">
-              <input type="text" name="description" value="<%=product.description%>"/>
-            </th>
-            <th class="info-table" scope="col">
-              <input type="text" name="price" value="<%=product.price%>"/>
-            </th>
-            <th class="info-table" scope="col">
-              <input type="text" name="img" value="<%=product.img%>"/>
-            </th>
-          </tr>
-          <thead>
-            <!-- <th class="header-text" scope="col">Img</th> -->
-            <th></th>
-            <th class="header-text" scope="col">Qty</th>
-            <th></th>
-            <th></th>
-          </thead>
-          <tr>
-            <th></th>
-            <th class="info-table">
-              <input type="text" name="qty" value="<%=product.qty%>"/>
-            </th>
-
-            <th scope="col">
-                  <input type="submit" value="UPDATE" class="btn btn-primary"/>
-            </th>
-            </form>
-            <th scope="col">
-              <form action="/shop/<%=product.id%>/edit?_method=DELETE" method="POST">
-                <input type="submit" value="DELETE" class="btn btn-danger"/>
-              </form>
-            </th>
-          </tr>
-        </table>
+    <div class="container show-div">
+      <div class="row show-row">
+        <div class="col show-img-div">
+          <img src="<%=product.img%>" alt="" class="img-fluid show-img">
         </div>
-          <div class="div-button">
-            <!-- <input type="submit" value="UPDATE" class="btn btn-primary"/>
-            </form> -->
-            <form method='GET' action='/shop/new'>
-              <button class="btn btn-success" type='submit'>BACK</button>
-            </form>
+        <div class="col show-info">
+          <h4 class="show-header"><%=product.name%> from: <%=product.farmName%></h4>
+          <form action="/shop/<%=product.id%>/edit?_method=PUT" method="POST" class="edit-form">
+          <div class="form-group row edit-form-rows">
+            <div class="col-sm-10">
+              <label for="email" class="col-sm-2 col-form-label login-text">Name:</label>
+              <input type="text" name="name" value="<%=product.name%>"/>
+            </div>
           </div>
-          <% include ../partials/footer.ejs %>
+          <div class="form-group row edit-form-rows">
+            <div class="col-sm-10">
+              <label for="email" class="col-sm-2 col-form-label login-text">Desc:</label>
+              <input type="text" name="description" value="<%=product.description%>"/>
+            </div>
+          </div>
+          <div class="form-group row edit-form-rows">
+            <div class="col-sm-10">
+              <label for="email" class="col-sm-2 col-form-label login-text">Price:</label>
+              <input type="text" name="price" value="<%=product.price%>"/>
+            </div>
+          </div>
+          <div class="form-group row edit-form-rows">
+            <div class="col-sm-10">
+              <label for="email" class="col-sm-2 col-form-label login-text">Qty:</label>
+              <input type="text" name="qty" value="<%=product.qty%>"/>
+            </div>
+          </div>
+          <div class="form-group row edit-form-rows">
+            <div class="col-sm-10">
+              <label for="email" class="col-sm-2 col-form-label login-text">Img:</label>
+              <input type="text" name="img" value="<%=product.img%>"/>
+            </div>
+          </div>
+          <div class="form-group row btnz">
+            <input type="submit" value="UPDATE" class="btn btn-primary update-btn"/>
+          </form>
+          <form action="/shop/<%=product.id%>/edit?_method=DELETE" method="POST" class="delete-btn">
+            <input type="submit" value="DELETE" class="btn btn-danger delete-btn"/>
+          </form>
+          <form method="GET" action="/shop" class="show-btn">
+            <button class="btn btn-success" type='submit'>BACK</button>
+          </form>
+          </div>
+        </div>
       </div>
+    </div>
   </body>
 </html>
