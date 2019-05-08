@@ -8,11 +8,10 @@
   <body>
     <!-- nav-bar -->
     <% include ../partials/nav.ejs %>
-    <div class="container">
+    <div class="container error-message">
       <h1 class="text-center err-msg">OOPS!</h1>
       <!-- error message from the error handler -->
       <h2 class="text-center err-msg"><%=message%></h2>
-      <% include ../partials/footer.ejs %>
     </div>
   </body>
 </html>

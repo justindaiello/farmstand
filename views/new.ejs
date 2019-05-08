@@ -12,12 +12,17 @@
           <h1 class="farmer-header">Welcome!</h1>
           <div class="form-group row new-item create-input">
             <form class="form-inline" action="/shop" method="POST">
-                <input type="text" name="name" placeholder="Name"/><br/>
-                <input type="text" name="description" placeholder="Description"/><br/>
-                <input type="text" name="img" placeholder="Image URL"/><br/>
-                <input type="text" name="price" placeholder="Price"/><br/>
-                <input type="text" name="qty" placeholder="Quantity"/><br/>
-                <input class="btn btn-primary createBtn" type="submit" name="" value="Create Product"/>
+              <div class="col">
+                <input class="input-boxes" type="text" name="name" placeholder="Name"/>
+                <input class="input-boxes" type="text" name="description" placeholder="Description"/>
+                <input class="input-boxes" type="text" name="img" placeholder="Image URL"/>
+                <input class="input-boxes" type="text" name="price" placeholder="Price"/>
+              </div>
+              <div class="col">
+                <input class="input-boxes" type="text" name="qty" placeholder="Quantity"/>
+                <input class="input-boxes" type="text" name="farmName" placeholder="Farm Name"/>
+                <input class="btn btn-main input-btn" type="submit" name="" value="Create Product"/>
+              </div>
             </form>
           </div>
             <div class="table-responsive table-small">
@@ -40,12 +45,12 @@
                 <% if (product[i].qty <= 0) { %>
                   <!-- red update button when item is out of stock -->
                   <form action="/shop/<%=product[i].id%>/edit" method="GET">
-                    <input type="submit" value="UPDATE" class="btn btn-danger"/>
+                    <input type="submit" value="UPDATE" class="btn btn-delete"/>
                   </form>
                   <% } else { %>
                   <!-- regular update button when items are in stock -->
                   <form action="/shop/<%=product[i].id%>/edit" method="GET">
-                    <input type="submit" value="UPDATE" class="btn btn-primary"/>
+                    <input type="submit" value="UPDATE" class="btn btn-main"/>
                   </form> <% } %>
                 </th>
                 </tr>
@@ -56,7 +61,7 @@
             <!-- </div> -->
         <div class="div-button">
           <form method='GET' action='/shop'>
-            <button class="btn btn-success bottom-btn" type='submit'>BACK</button>
+            <button class="btn btn-main bottom-btn" type='submit'>BACK</button>
           </form>
         </div>
     </div>

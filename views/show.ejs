@@ -24,11 +24,11 @@
           <form action="/shop/<%=product.id%>?_method=PUT" method="POST" class="show-form">
             <!-- <input type="hidden" name="qty" value="<%=product.qty - 1%>"/> -->
             <input type="text" placeholder="Quantity" name="qty" id="qty" />
-            <input type="submit" value="RESERVE" class="reserve btn btn-primary"/>
+            <input type="submit" value="RESERVE" class="reserve btn btn-reserve"/>
           </form>
         <% } %>
         <form method="GET" action="/shop" class="show-btn">
-          <button class="btn btn-success" type='submit'>BACK</button>
+          <button class="btn btn-main" type='submit'>BACK</button>
         </form>
         </div>
       </div>
