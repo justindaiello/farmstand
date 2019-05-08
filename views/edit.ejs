@@ -7,7 +7,7 @@
   </head>
   <body>
     <% include ../partials/nav.ejs %>
-    <div class="container show-div">
+    <div class="container-fluid">
       <div class="row show-row">
         <div class="col show-img-div">
           <img src="<%=product.img%>" alt="" class="img-fluid show-img">
@@ -52,7 +52,7 @@
             <input type="submit" value="DELETE" class="btn btn-delete delete-btn"/>
           </form>
           <form method="GET" action="/shop" class="show-btn">
-            <button class="btn btn-main back-btn"" type='submit'>BACK</button>
+            <button class="btn btn-main back-btn" type='submit'>BACK</button>
           </form>
           </div>
         </div>

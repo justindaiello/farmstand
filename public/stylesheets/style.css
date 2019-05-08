@@ -504,7 +504,7 @@ body {
 
 .footer {
   /* box-model */
-  width: 98%;
+  width: 100%;
   height: 10%;
   bottom: 0;
   display: flex;
@@ -516,18 +516,26 @@ body {
 }
 
 .line-div {
+  /* box-model */
   width: 100%;
+  display: flex;
+
+  /* positioning */
+  justify-content: center;
 }
 
 .footer-icons {
+  /* box-model */
   display: flex;
+
+  /* positioning */
   justify-content: center;
 }
 
 .line {
   /* box-model */
   height: .15em;
-  width: 98%;
+  width: 95%;
 
   /* positioning */
   align-self: flex-end;
@@ -546,12 +554,6 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-  }
-
   .buyer-info {
     margin-top: 1em;
   }
@@ -569,6 +571,10 @@ body {
     margin: 0 auto;
   }
 
+  .show-info {
+    margin-bottom: 1em;
+  }
+
   .show-img-div {
     margin-top: 1em;
     margin-bottom: 1em;
@@ -581,8 +587,17 @@ body {
     justify-content: center;
   }
 
+  .show-back-btn {
+    /* box-model */
+    margin-bottom: 1em;
+  }
+
   .photo-box {
     margin: 0 auto;
+  }
+
+  .create-input {
+    justify-content: center;
   }
 }
 
