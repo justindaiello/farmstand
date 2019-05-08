@@ -1,4 +1,3 @@
-//Have to require mongoose here
 const mongoose = require('mongoose');
 
 

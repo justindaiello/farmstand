@@ -253,6 +253,9 @@ body {
 }
 
 .show-info {
+  /* box-model */
+  margin-right: 5em;
+
   /* typography */
   color: var(--white);
   background: var(--seaGreenNav);
@@ -312,6 +315,11 @@ body {
 .show-btn{
   /* typography */
   text-align: center;
+}
+
+.show-back-btn {
+  /* box-model */
+  margin-bottom: 1em;
 }
 
 .back-btn {
@@ -578,11 +586,6 @@ body {
     /* positioning */
     flex-direction: column;
     justify-content: center;
-  }
-
-  .show-back-btn {
-    /* box-model */
-    margin-bottom: 1em;
   }
 
   .photo-box {
