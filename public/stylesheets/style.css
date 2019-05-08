@@ -11,13 +11,19 @@
   --olive: rgb(60,32,19);
 }
 
+*{
+border: 0;
+padding: 0;
+margin: 0;
+}
+
 body {
   /* visual */
   background: url('https://i.imgur.com/M8LBtVJ.jpg') no-repeat center center fixed;
   background-size: cover;
   /* background-position: center; */
-  height: 100%;
-  min-width: 100%;
+  /* height: 100%;
+  min-width: 100%; */
 
   /* typography */
   font-family: 'Work Sans', sans-serif;
@@ -540,6 +546,12 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
   .buyer-info {
     margin-top: 1em;
   }
