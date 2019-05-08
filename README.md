@@ -4,9 +4,9 @@
 ##### The idea behind the app is to give shoppers a chance to reserve the best produce at the farmers market from their favorite farmers and show up to market whenever they would like to rather than try to get up extra early to get the best picks.
 ##### The app uses the following:
 1. Node.js
-⋅⋅*Express
-⋅⋅*bCryptJS
-⋅⋅*EJS
+*Express
+*bCryptJS
+*EJS
 3. jQuery
 4. Mongoose
 5. MongoDB
