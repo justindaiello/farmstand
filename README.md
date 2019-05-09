@@ -20,3 +20,12 @@
 ```CSS
 rgb(172,188,100);
 ```
+2. Sea Green
+```CSS
+rgb(201,211,206);
+```
+3. Olive
+```CSS
+rgb(60,32,19);
+```
+###### I have future plans to encorporate a full shopping cart feature as well as log-in functions for customers to make ordering easier.
