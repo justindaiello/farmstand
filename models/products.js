@@ -10,7 +10,8 @@ const productSchema = new mongoose.Schema({
   img: { type: String, required: true },
   farmName: { type: String, required: true },
   price: { type: Number, min: 0, required: true },
-  qty: { type: Number, required: true }
+  qty: { type: Number, required: true },
+  usersId: String
 });
 
 
