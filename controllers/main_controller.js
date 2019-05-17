@@ -17,8 +17,8 @@ router.get('/shop/new', mid.requiresLogin, (req, res, next) => {
       if (error) {
       next(error);
       } else {
-        Product.find({}, (err, allProducts) => {
-          res.render('new.ejs', { product: allProducts });
+        Product.find({ usersId: req.session.userId }, (err, allProducts) => {
+          res.render('new.ejs', { product: allProducts});
         });
       };
     });
@@ -29,6 +29,7 @@ router.get('/shop/new', mid.requiresLogin, (req, res, next) => {
 // POST
 //==============
 router.post('/shop/', (req, res, next) => {
+  req.body.usersId = req.session.userId
   Product.create(req.body, (err, createdProduct) => {
     res.redirect('/shop/new');
   });
